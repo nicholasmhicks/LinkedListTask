@@ -52,7 +52,8 @@ namespace DataStructuresUnitTests {
             ll.AddToEnd("end");
             
             Assert.AreEqual(11, ll.Count());
-            Assert.AreEqual("end", ll.GetNodeAt(11).Data);
+            //Assert.AreEqual("end", ll.GetNodeAt(11).Data); Original test, testing outside of range of linked list length
+            Assert.AreEqual("end", ll.GetNodeAt(10).Data);
         }
 
         [Test]

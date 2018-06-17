@@ -73,7 +73,8 @@ namespace Data_Structures {
             return dataList;
         }
 
-        public List<string> InOrder() {
+        public List<string> InOrder()
+        {
             return null;
         }
 
