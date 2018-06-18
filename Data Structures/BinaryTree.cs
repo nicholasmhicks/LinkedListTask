@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Data_Structures {
@@ -69,13 +70,35 @@ namespace Data_Structures {
                 }
                 
             }
-
             return dataList;
         }
 
         public List<string> InOrder()
         {
-            return null;
+            var res = new List<string>();
+            var mystack = new Stack<BinaryTreeNode>();
+
+            findMostLeftNode(Root, mystack);
+
+            while (mystack.Count > 0)
+            {
+                var top = mystack.Pop();
+                res.Add(top.Data);
+
+                findMostLeftNode(top.Right, mystack);
+            }
+
+            return res;
+        }
+
+
+        private void findMostLeftNode(BinaryTreeNode root, Stack<BinaryTreeNode> mystack)
+        {
+            while (root != null)
+            {
+                mystack.Push(root);
+                root = root.Left;
+            }
         }
 
         public List<string> PostOrder() {
